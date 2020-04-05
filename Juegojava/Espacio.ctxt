@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Espacio
-comment1.params=
-comment1.target=Espacio()
-comment2.params=numero
-comment2.target=void\ crearTerran(int)
-comment3.params=numero
-comment3.target=void\ crearZerg(int)
-numComments=4
