@@ -1,14 +1,8 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
-/**
- * Write a description of class HealthCenter here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class HealthCenter extends Actor
 {
-    
+    //Tamaño del Healthcenter
     public HealthCenter(){
     getImage().scale(getImage().getWidth()/6, getImage().getHeight()/6);
     }
@@ -16,6 +10,7 @@ public class HealthCenter extends Actor
     {
        curacionMedicos();
     }    
+    //Deteccion de los medicos de Protoss y Zerg
     public boolean tocarMedProtoss(){
     if(isTouching(MedicoProtoss.class)){
      return true;
@@ -33,13 +28,15 @@ public class HealthCenter extends Actor
     public void curacionMedicos(){
         World myWorld = getWorld();
         MyWorld rename = (MyWorld)myWorld;
+        //Renombrando Medicos
         MedicoProtoss medicoProtoss= rename.getMedicoProtoss();
         
         MedicoZerg medicoZerg= rename.getMedicoZerg();
+        //Renombrando barras de vida
         HealthBar healthBarProtoss = rename.getHealthBar();
         
         HealthBarZE healthBarZerg = rename.getHealthBar2();
-        
+        //curacion del healthcenter (20 x 20)
         int celdasTotal=medicoProtoss.celda+medicoZerg.celda;
         if(celdasTotal<=20){
             if(tocarMedProtoss()==true && healthBarProtoss.healthMed<160){

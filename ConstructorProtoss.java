@@ -26,13 +26,16 @@ public class ConstructorProtoss extends Protoss
         isAtEdge(); 
         reboteObst();
         reboteEnemigo();
-         kill();
-       movimientoControl();
+        kill();
+        movimientoControl();
    
     }    
-     public void movimientoControl(){
-    if(Greenfoot.isKeyDown("P")){
-       if(Greenfoot.isKeyDown("Right")){
+    
+    //Movimiento controlado 
+     public void movimientoControl()
+     {
+       if(Greenfoot.isKeyDown("P")){
+        if(Greenfoot.isKeyDown("Right")){
         turn(20);   
         }
         if(Greenfoot.isKeyDown("Left")){
@@ -44,9 +47,11 @@ public class ConstructorProtoss extends Protoss
         if(Greenfoot.isKeyDown("Up")){
         setLocation(getX(), getY()-15);
         }
+      }
     }
-}
-    public boolean isAtEdge(){
+    //Cuando llega al borde 
+    public boolean isAtEdge()
+    {
         if(getX() < 10 || getX() > getWorld().getWidth()-10){
             turn(Greenfoot.getRandomNumber(50));
             return true;
@@ -59,7 +64,9 @@ public class ConstructorProtoss extends Protoss
         return false;
         }
     }
-    public boolean golpearObst(){
+    //Detector cuando se toca con un obstaculo
+    public boolean golpearObst()
+    {
     if(isTouching(obstaculoArbol.class)||isTouching(depositoProtross.class)||
     isTouching(depositoZerg.class)||
     isTouching(HealthCenter.class)||isTouching(MedicoProtoss.class)){
@@ -69,14 +76,19 @@ public class ConstructorProtoss extends Protoss
     else{
             return false;
         }
-}
-    public boolean tocaMina(){
+        
+    }
+    //Detector de tocar mina
+    public boolean tocaMina()
+    {
         if(isTouching(mina.class)){
             return true;
         }
     return false;
     }
-   public boolean tocarDeposito(){
+    //Detector de tocar deposito
+    public boolean tocarDeposito()
+    {
     if(isTouching(depositoProtross.class)){
     return true;
     }
@@ -84,7 +96,7 @@ public class ConstructorProtoss extends Protoss
     }
     
     
-    
+    //Rebote
     public void reboteObst(){
     if(golpearObst() == true){
         turn(Greenfoot.getRandomNumber(50));         
@@ -95,7 +107,7 @@ public class ConstructorProtoss extends Protoss
             
 
         
-        
+     //Metodos Para realizar daño   
     }
     public boolean golpearEnemigo(){
 
@@ -120,6 +132,7 @@ public class ConstructorProtoss extends Protoss
          return false;
         }
     }
+    //Metodo para rebotar con un enemigo
     public void reboteEnemigo(){
     if(golpearEnemigo() == true){
     turn(Greenfoot.getRandomNumber(50));
@@ -127,7 +140,7 @@ public class ConstructorProtoss extends Protoss
     else{
     }
     }
-    
+    //Metodo para morir 
     public void kill(){
           World myWorld = getWorld();
         MyWorld rename = (MyWorld)myWorld;

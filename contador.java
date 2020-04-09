@@ -20,7 +20,7 @@ public class contador extends Actor
       
        int vidaProt=healthBarProtoss.healthGuer+healthBarProtoss.healthMed+healthBarProtoss.healthConst;
        int vidaZerg=healthBarZerg.health2Guer+healthBarZerg.health2Med+healthBarZerg.health2Const;
-        
+        //definiendo el ganador, tiempo en segundos
         if(time==1800){
                GameOver gameOver = new GameOver();
             myWorld.addObject(gameOver, myWorld.getWidth()/2,myWorld.getHeight()/2);
@@ -57,12 +57,13 @@ public class contador extends Actor
         }
         
     }
-
+    //Cronometro
     public contador(){
        
      setImage(new GreenfootImage("Tiempo: "+time/30,30,Color.RED, Color.BLACK));
      
     } 
+    //Cronometro act
     public void act() 
     {
        time++;

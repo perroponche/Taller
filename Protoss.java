@@ -56,36 +56,44 @@ public class Protoss extends Actor
         else{
         }
     }
-    public boolean golpearEnemigo(){
+    public boolean golpearEnemigo()
+    {
 
-      //prueba
+      
         World myWorld = getWorld();
         MyWorld rename = (MyWorld)myWorld;
         HealthBar healthBarProtoss = rename.getHealthBar();
         
-    if(isTouching(Zerg.class)){
+      if(isTouching(Zerg.class)){
         
-        healthBarProtoss.loseHealthProtossGuerrero();//prueba
+        healthBarProtoss.loseHealthProtossGuerrero(); 
         
-    return true;
-}
-    else{
+       return true;
+       }
+      else{
         
-    }    
-    return false;}
+      }    
+      return false;
+    }
+    
+    
     public void reboteEnemigo(){
     if(golpearEnemigo() == true){
     turn(Greenfoot.getRandomNumber(50));
     }
     else{
+        //Vacio para que no haga nada
     }
     }
+    
+    
     public void kill(){
           World myWorld = getWorld();
         MyWorld rename = (MyWorld)myWorld;
+        //Renombrando la bara de vida de los Protoss
         HealthBar healthBarProtoss = rename.getHealthBar();
-    if (healthBarProtoss.muerteGuerrero()==true){
+     if (healthBarProtoss.muerteGuerrero()==true){
         getWorld().removeObject(this);
-    }
+     }
     }
 }

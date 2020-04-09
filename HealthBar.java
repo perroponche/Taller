@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-
+// HealthBar para los Protoss, en el healthCenter se hace un renombramiento, care
 public class HealthBar extends Actor
 {       
     
@@ -11,12 +11,13 @@ public class HealthBar extends Actor
         int pixelsPerHealthPoint = (int)healthBarWidth/((healthConst+healthGuer+healthMed)/3);
         
     public HealthBar(){
-    
-       setImage(new GreenfootImage(healthBarWidth + 2, healthBarHeight + 2));
+        
+        setImage(new GreenfootImage(healthBarWidth + 2, healthBarHeight + 2));
+        //Objeto myImage, instanciamos las caracteristicas
         GreenfootImage myImage = getImage();
-        myImage.setColor(Color.BLACK);
-        myImage.drawRect(0, 0, healthBarWidth + 1, healthBarHeight + 1);
-        myImage.setColor(Color.RED);
+        myImage.setColor(Color.BLACK); //Bordes
+        myImage.drawRect(0, 0, healthBarWidth + 1, healthBarHeight + 1); //Dimensiones 
+        myImage.setColor(Color.RED); //background 
         myImage.fillRect(1, 1, ((healthConst+healthGuer+healthMed)/3)*pixelsPerHealthPoint, healthBarHeight);
     }
     public void act() 
@@ -32,9 +33,10 @@ public class HealthBar extends Actor
         myImage.setColor(Color.BLACK);
         myImage.drawRect(0, 0, healthBarWidth + 1, healthBarHeight + 1);
         myImage.setColor(Color.RED);
+        //Llenado del rectangulo
         myImage.fillRect(1, 1, ((healthConst+healthGuer+healthMed)/3)*pixelsPerHealthPoint, healthBarHeight);
     }
-    
+    // Metodos para perder vida
     public void loseHealthProtossGuerrero()
     {
         healthGuer=healthGuer-10;
@@ -58,6 +60,8 @@ public class HealthBar extends Actor
         healthConst=healthConst-2;
 
     }
+    
+    //Metodos de los medicos para curar
     public void curarConst(){
     healthConst=healthConst+15;
     healthMed=healthMed-20;
@@ -66,6 +70,8 @@ public class HealthBar extends Actor
     healthGuer=healthGuer+15;
     healthMed=healthMed-20;
     }
+    
+    //Metodos para las muertes
     public boolean muerteConst(){
     if(healthConst<=0){
         return true;
